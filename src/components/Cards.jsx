@@ -3,7 +3,7 @@ import React from "react";
 export default function Cards({characters,onClose}) {
   return (
 <div>
-  {characters.map((character) => {
+  {characters.map((character,index) => {
     return (
       <Card
       key={character.id}
@@ -14,8 +14,8 @@ export default function Cards({characters,onClose}) {
       gender={character.gender}
       origin= {character.origin.name}
       image={character.image}
-      // onClose={() => window.alert('Emulamos que se cierra la card')}
-      onClose={() => onClose(character.id)}
+      onClose={onClose}
+      // onClose={() => onClose(character.id)}
       > </Card>
     );
   })}
