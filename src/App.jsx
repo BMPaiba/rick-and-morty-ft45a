@@ -6,14 +6,15 @@ import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
 import { useState } from "react";
 import axios from "axios";
-import {Route, Routes } from "react-router-dom";
+import {Route, Routes, useNavigate } from "react-router-dom";
 import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
 import NotFounding from "./components/NotFounding.jsx";
 
+
 function App() {
   const [characters, setCharacteres] = useState([]);
-
+  const navigate = useNavigate()
   // const onClose = () => {
   //   alert('estas ejecutando onClose');
   // };
@@ -40,6 +41,7 @@ function App() {
         window.alert("¡No hay personajes con este ID!");
       }
     });
+    navigate('/home')
   }
 
   return (
@@ -51,7 +53,7 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/home/detail/:id" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<NotFounding />} />
       </Routes>
     </div>
