@@ -6,6 +6,10 @@ import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
 import { useState } from "react";
 import axios from "axios";
+import {Route, Routes } from "react-router-dom";
+import About from "./components/About.jsx";
+import Detail from "./components/Detail.jsx";
+import NotFounding from "./components/NotFounding.jsx";
 
 function App() {
   const [characters, setCharacteres] = useState([]);
@@ -22,26 +26,34 @@ function App() {
   };
 
   function onSearch(id) {
-    const characterId = characters.filter(char => char.id === Number(id))
-    if(characterId.length) {
-      return alert(`El personaje con id ${id} ya existe`)
+    const characterId = characters.filter((char) => char.id === Number(id));
+    if (characterId.length) {
+      return alert(`El personaje con id ${id} ya existe`);
     }
-    // axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-    axios(`https://rym2.up.railway.app/api/character/${id}?key=henrystaff`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacteres((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    // axios(
+    //   `https://rym2.up.railway.app/api/character/${id}?key=henrystaff`
+    ).then(({ data }) => {
+      if (data.name) {
+        setCharacteres((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert("¡No hay personajes con este ID!");
       }
-    );
+    });
   }
 
   return (
     <div className="App">
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/home/detail/:id" element={<Detail />} />
+        <Route path="*" element={<NotFounding />} />
+      </Routes>
     </div>
   );
 }
