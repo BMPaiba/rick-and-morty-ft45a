@@ -6,15 +6,16 @@ import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
 import { useState } from "react";
 import axios from "axios";
-import {Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
 import NotFounding from "./components/NotFounding.jsx";
-
+import Form from "./components/Form.jsx";
+import { useEffect } from "react";
 
 function App() {
   const [characters, setCharacteres] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // const onClose = () => {
   //   alert('estas ejecutando onClose');
   // };
@@ -31,23 +32,45 @@ function App() {
     if (characterId.length) {
       return alert(`El personaje con id ${id} ya existe`);
     }
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-    // axios(
-    //   `https://rym2.up.railway.app/api/character/${id}?key=henrystaff`
-    ).then(({ data }) => {
-      if (data.name) {
-        setCharacteres((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
-      }
-    });
-    navigate('/home')
+    axios(`https://rickandmortyapi.com/api/character/${id}`)
+      .then
+      // axios(
+      //   `https://rym2.up.railway.app/api/character/${id}?key=henrystaff`
+      ()
+      .then(({ data }) => {
+        if (data.name) {
+          setCharacteres((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
+      });
+    navigate("/home");
   }
 
+  const [access, setAccess] = useState(false);
+  const EMAIL = "hola@gmail.com";
+  const PASSWORD = "asd123";
+
+  const login = (userData) => {
+    if (userData.email === EMAIL && userData.password === PASSWORD) {
+      setAccess(true);
+      navigate("/home");
+    }
+  };
+
+  const logout = () => {
+    setAccess(false);
+  }
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
+  const { pathname } = useLocation();
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
+      {pathname === "/" ? null :  <Nav onSearch={onSearch} logout={logout}/>}
       <Routes>
+        <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
