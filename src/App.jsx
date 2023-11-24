@@ -51,8 +51,8 @@ function App() {
 
    //* Login
    const [access, setAccess] = useState(false);
-   const EMAIL = 'ejemplo@gmail.com';
-   const PASSWORD = '123456';
+   const EMAIL = 'hola@gmail.com';
+   const PASSWORD = 'asd123';
 
    function login(userData) {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -69,8 +69,8 @@ function App() {
 
    useEffect(() => {
       //* Logueo automático
-      !access && navigate('/home');
-      // !access && navigate('/');
+      // !access && navigate('/home');
+      !access && navigate('/');
    }, [access]);
 
    return (
