@@ -11,7 +11,8 @@ export default function Detail(props) {
    // console.log(id);
    const [character, setCharacter] = useState({});
    useEffect(() => {
-      axios(`${URL}/${id}?key=${API_KEY}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      // axios(`${URL}/${id}?key=${API_KEY}`)
          //* { timpo:x, status:x, data: { Rick } }
          .then(
             ({ data }) => {

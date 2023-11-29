@@ -31,7 +31,8 @@ function App() {
       if(characterId.length) {
          return alert(`${characterId[0].name} ya existe!`)
       }
-      axios(`${URL}/${id}?key=${API_KEY}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      // axios(`${URL}/${id}?key=${API_KEY}`)
          .then(
             ({ data }) => {
                if (data.name) {
@@ -69,8 +70,8 @@ function App() {
 
    useEffect(() => {
       //* Logueo automático
-      // !access && navigate('/home');
-      !access && navigate('/');
+      !access && navigate('/home');
+      // !access && navigate('/');
    }, [access]);
 
    return (
