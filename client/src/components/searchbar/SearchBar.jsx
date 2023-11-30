@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './SearchBar.module.css'
 
 export default function SearchBar(props) {
 
@@ -21,18 +22,20 @@ export default function SearchBar(props) {
 	};
    
    return (
-      <div>
+      <div className={styles.container}>
          <input
             type="text"
             name="search"
             id="search"
+            className={styles.inputId}
             onChange={handleChange}
             value={id}
+            placeholder="Escriba el Id..."
          />
-         <button onClick={handleClick}>Agregar</button>
+         <button className={styles.buttonAgregar} onClick={handleClick}>Agregar</button>
          {/* Traer Character Random */}
-         <button onClick={handleRandom}>Random</button>
-         <hr />
+         <button className={styles.buttonAgregar} onClick={handleRandom}>Random</button>
+        
       </div>
    );
 }

@@ -70,8 +70,8 @@ function App() {
 
    useEffect(() => {
       //* Logueo automático
-      !access && navigate('/home');
-      // !access && navigate('/');
+      // !access && navigate('/home');
+      !access && navigate('/');
    }, [access]);
 
    return (

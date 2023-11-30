@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box;
+}
+
+.container__text {
+  width: 50vw;
+  /* height: 50vh; */
+  
+}
+
+.container__img {
+  width: 50vw;
+}
+.container__img_img {
+  width: 350px;
+  border-radius: 20px;
+  border: 5px solid greenyellow;
+}
+
+.container__text h2 {
+  font-size: 50px;
+  margin: 20px;
+  color: greenyellow;
+}
+
+.container__text h3 {
+  font-size: 30px;
+  margin: 10px;
+  /* color:  rgba(93, 193, 185, 1); */
+  /* color: greenyellow; */
+  color: skyblue;
+}

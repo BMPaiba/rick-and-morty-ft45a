@@ -1,0 +1,23 @@
+.container__button{
+    padding: 5px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.container__button{
+    padding: 4px 25px;
+    font-size: 14px;
+    margin-left: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border: 2px solid greenyellow;
+    background-color: rgba(93, 193, 185, 0.7);
+    color: white;
+    border-radius: 15px;
+  }
+
+  .container__button_option{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(93, 193, 185, 0.7);
+    color: white;
+  }
