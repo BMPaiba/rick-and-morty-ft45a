@@ -16,6 +16,7 @@ function getCharById(res, id) {
           origin: data.origin,
           image: data.image,
           status: data.status,
+          location: data.location,
         };
         return res
           .writeHead(200, { "Content-Type": "application/json" })
