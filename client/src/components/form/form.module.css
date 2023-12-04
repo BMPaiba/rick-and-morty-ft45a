@@ -3,7 +3,7 @@
     justify-content: center ;
     align-items: center;
     height: 100vh; /* Ajusta la altura según la ventana gráfica (viewport height) */
-    
+  
   }
 
   form{
@@ -44,8 +44,12 @@
     font-size: 15px;
     color: rgb(145, 145, 145);
   }
+
+  .button:hover{
+    cursor:pointer
+  }
   
   .input:focus {
     outline: none;
-    background-color: dimgrey;
+    /* background-color: dimgrey; */
   }

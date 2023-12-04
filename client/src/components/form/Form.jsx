@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import validation from "../../utils/validation";
 import styles from "./form.module.css";
+
+
 
 export default function Form(props) {
   const [userData, setUserData] = useState({
@@ -22,6 +24,14 @@ export default function Form(props) {
       })
     );
   };
+
+  useEffect(() => {
+    // document.body.style.backgroundImage = `url('./public/fondo-form.jpg')`;
+    document.body.style.backgroundImage = `url('https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABZlogqAf_6OfZxe1q0esZQSDAx9FjMiz6efN650Hx_b_GBAEfVQgwfDADqKxOwOBuioP_Ar29SV78ftyEczJWlFsuaJBdJe9_jNe.jpg?r=0a1`;
+    return () => {
+      document.body.style.backgroundImage = null;
+    };
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

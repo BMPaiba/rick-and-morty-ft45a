@@ -15,12 +15,12 @@ export default function Nav(props) {
         <NavLink to="/about">
           <button className={style.container__button}>About</button>
         </NavLink>
+      <div className={style.searchbar}>
+        <SearchBar onSearch={props.onSearch} onClear={props.onClear} />
+      </div>
         <button onClick={props.logout} className={style.container__button}>
           Logout
         </button>
-      </div>
-      <div className={style.searchbar}>
-        <SearchBar onSearch={props.onSearch} />
       </div>
     </div>
   );

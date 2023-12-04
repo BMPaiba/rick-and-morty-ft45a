@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { removeFav } from './redux/actions.js';
+import { Clear, removeFav } from './redux/actions.js';
 import About from './components/about/About.jsx';
 import Cards from './components/cards/Cards.jsx';
 import Detail from './components/detail/Detail.jsx';
@@ -39,7 +39,7 @@ function App() {
                   // console.log(data)
                   setCharacters([...characters, data]);
                } else {
-                  window.alert('¡El id debe ser un número entre 1 y 826!');
+                  alert('¡El id debe ser un número entre 1 y 826!');
                }
             });
       navigate("/home");
@@ -50,19 +50,40 @@ function App() {
       dispatch(removeFav(id));
    }
 
+   const onClear = () => {
+      setCharacters([])
+      // dispatch(orderCards());
+      dispatch(Clear())
+      navigate("/home")
+   }
+
+
+   
    //* Login
    const [access, setAccess] = useState(false);
    const EMAIL = 'hola@gmail.com';
    const PASSWORD = 'asd123';
 
+   // function login(userData) {
+   //    if (userData.password === PASSWORD && userData.email === EMAIL) {
+   //       setAccess(true);
+   //       navigate('/home');
+   //    } else {
+   //       alert("Credenciales incorrectas!");
+   //    }
+   // }
+
    function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      } else {
-         alert("Credenciales incorrectas!");
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
+
+
 
    function logout() {
       setAccess(false);
@@ -70,14 +91,14 @@ function App() {
 
    useEffect(() => {
       //* Logueo automático
-      // !access && navigate('/home');
-      !access && navigate('/');
+      !access && navigate('/home');
+      // !access && navigate('/');
    }, [access]);
 
    return (
       <div className='App'>
          {
-            location.pathname !== "/" ? <Nav onSearch={onSearch} logout={logout} /> : null
+            location.pathname !== "/" ? <Nav onSearch={onSearch} logout={logout} onClear={onClear} /> : null
          }
          <Routes>
             <Route

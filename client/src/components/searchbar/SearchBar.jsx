@@ -20,6 +20,11 @@ export default function SearchBar(props) {
 		const randomNumber = Math.floor(Math.random() * 826) + 1;
 		props.onSearch(randomNumber);
 	};
+   const handleClear = () => {
+		props.onClear();
+	};
+
+
    
    return (
       <div className={styles.container}>
@@ -32,9 +37,10 @@ export default function SearchBar(props) {
             value={id}
             placeholder="Escriba el Id..."
          />
-         <button className={styles.buttonAgregar} onClick={handleClick}>Agregar</button>
+         <button className={styles.buttonAgregar} onClick={handleClick}>Add</button>
          {/* Traer Character Random */}
          <button className={styles.buttonAgregar} onClick={handleRandom}>Random</button>
+         <button className={styles.buttonAgregar} onClick={handleClear}>Clear</button>
         
       </div>
    );
