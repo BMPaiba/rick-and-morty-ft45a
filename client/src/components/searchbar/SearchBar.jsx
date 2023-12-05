@@ -37,10 +37,10 @@ export default function SearchBar(props) {
             value={id}
             placeholder="Escriba el Id..."
          />
-         <button className={styles.buttonAgregar} onClick={handleClick}>Add</button>
+         <button className={styles.buttons} onClick={handleClick}>Add</button>
          {/* Traer Character Random */}
-         <button className={styles.buttonAgregar} onClick={handleRandom}>Random</button>
-         <button className={styles.buttonAgregar} onClick={handleClear}>Clear</button>
+         <button className={styles.buttons} onClick={handleRandom}>Random</button>
+         <button className={styles.buttons} onClick={handleClear}>Clear</button>
         
       </div>
    );

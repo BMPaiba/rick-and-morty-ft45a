@@ -1,5 +1,3 @@
-
-
 .inputId {
     /* margin: 10px; */
     padding: 5px;
@@ -13,7 +11,7 @@
     font-family: "Times New Roman", Times, serif;
   }
   
-  .buttonAgregar {
+  .buttons {
     padding: 4px 25px;
     font-size: 14px;
     margin-left: 10px;
@@ -23,6 +21,10 @@
     background-color: rgba(93, 193, 185, 0.7);
     color: white;
     border-radius: 15px;
+  }
+  .buttons:hover{
+    cursor: pointer;
+    background-color: green;
   }
   
   .inputId::placeholder {

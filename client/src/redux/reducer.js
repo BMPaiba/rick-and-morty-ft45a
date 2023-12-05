@@ -67,8 +67,9 @@ export default function reducer(state = initialState, { type, payload }) {
         ...state,
         myFavorites: orderCopy
       };
+      
     default:
       return { ...state };
   }
 }
-console.log(15);
+// console.log(15);

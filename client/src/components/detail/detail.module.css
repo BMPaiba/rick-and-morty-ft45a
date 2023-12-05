@@ -11,12 +11,12 @@
 .container__text {
   width: 50vw;
   /* height: 50vh; */
-  
 }
 
 .container__img {
   width: 50vw;
 }
+
 .container__img_img {
   width: 350px;
   border-radius: 20px;
