@@ -40,7 +40,7 @@ export default function Form(props) {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.container_form} onSubmit={handleSubmit}>
         {/* <label>Email: </label> */}
         <input
           className={styles.input}
@@ -48,7 +48,7 @@ export default function Form(props) {
           key="email"
           name="email"
           value={userData.email}
-          placeholder="Ingresar email..."
+          placeholder="Email..."
           onChange={handleChange}
         />
         <p style={{ color: "coral" }}>{errors.email ? errors.email : null}</p>
@@ -60,7 +60,7 @@ export default function Form(props) {
           key="password"
           name="password"
           value={userData.password}
-          placeholder="Ingresar password..."
+          placeholder="Password..."
           onChange={handleChange}
         />
         <p style={{ color: "coral" }}>{errors.password && errors.password}</p>
@@ -70,7 +70,7 @@ export default function Form(props) {
           type="submit"
           disabled={errors.email || errors.password}
         >
-          Ingresar
+          Login
         </button>
       </form>
     </div>

@@ -14,10 +14,21 @@
     background-color: rgba(93, 193, 185, 0.7);
     color: white;
     border-radius: 15px;
+    background: transparent;
+  backdrop-filter: blur(15px);
   }
 
   .container__button_option{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgba(93, 193, 185, 0.7);
+    background-color: #341C5A;
     color: white;
+    
+  }
+
+  .container__button_option:active{
+    outline: none;
+  }
+
+  .container__button:hover{
+    cursor: pointer;
   }

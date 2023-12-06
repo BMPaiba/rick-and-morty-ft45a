@@ -3,5 +3,8 @@
     "axios": "^1.6.2",
     "express": "^4.18.2",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "react-icons": "^4.12.0"
   }
 }

@@ -35,7 +35,7 @@ export default function SearchBar(props) {
             className={styles.inputId}
             onChange={handleChange}
             value={id}
-            placeholder="Escriba el Id..."
+            placeholder="type id..."
          />
          <button className={styles.buttons} onClick={handleClick}>Add</button>
          {/* Traer Character Random */}

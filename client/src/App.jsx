@@ -32,7 +32,7 @@ function App() {
         `http://localhost:3001/rickandmorty/character/${id}`
       );
       if (data.name) {
-        setCharacters([...characters, data]);
+        setCharacters([data, ...characters]);
         navigate("/home");
       } else {
         alert("¡El id debe ser un número entre 1 y 826!");
@@ -49,10 +49,20 @@ function App() {
   };
 
   const onClear = () => {
-    setCharacters([]);
-    // dispatch(orderCards());
-    dispatch(Clear());
-    navigate("/home");
+    const confirmacion = confirm("¿Estás seguro de realizar esta acción?");
+
+    // Verifica la respuesta de la confirmación
+    if (confirmacion) {
+      // Si el usuario hace clic en "Aceptar", realiza la acción
+      console.log("Acción confirmada, realiza la lógica aquí");
+      setCharacters([]);
+      // dispatch(orderCards());
+      dispatch(Clear());
+      navigate("/home");
+    } else {
+      // Si el usuario hace clic en "Cancelar", puedes realizar alguna otra acción o simplemente no hacer nada
+      console.log("Acción cancelada");
+    }
   };
 
   //* Login
@@ -72,7 +82,7 @@ function App() {
       access && navigate("/home");
     } catch (error) {
       // throw error;
-      alert(error.message)
+      alert(error.message);
     }
   };
 
@@ -82,8 +92,8 @@ function App() {
 
   useEffect(() => {
     //* Logueo automático
-    // !access && navigate("/home");
-     !access && navigate("/");
+    !access && navigate("/home");
+    // !access && navigate("/");
   }, [access]);
 
   return (

@@ -21,6 +21,8 @@
     background-color: rgba(93, 193, 185, 0.7);
     color: white;
     border-radius: 15px;
+    background: transparent;
+   backdrop-filter: blur(15px);
   }
   .buttons:hover{
     cursor: pointer;

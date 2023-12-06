@@ -25,11 +25,11 @@ export default function Favorites({ onClose }) {
                <option className={styles.container__button_option} value="D">Descendente</option>
             </select>
             <select className={styles.container__button} name="filter" onChange={handleFilter}>
-               <option value="All">All</option>
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-               <option value="Genderless">Genderless</option>
-               <option value="unknown">unknown</option>
+               <option className={styles.container__button_option} value="All">All</option>
+               <option className={styles.container__button_option} value="Male">Male</option>
+               <option className={styles.container__button_option} value="Female">Female</option>
+               <option className={styles.container__button_option} value="Genderless">Genderless</option>
+               <option className={styles.container__button_option} value="unknown">unknown</option>
             </select>
          </div>
 
