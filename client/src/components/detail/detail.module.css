@@ -13,7 +13,7 @@
 
 .container__text {
   width: 50vw;
-  height: 55vh;
+  height: 60vh;
   background: transparent;
   flex-direction: column;
   backdrop-filter: blur(30px);
@@ -22,6 +22,9 @@
   /* background-color: black; */
 }
 
+.container__text:hover{
+  cursor: default;
+}
 
 
 .container__img_img {
@@ -44,3 +47,18 @@
   color: skyblue;
 }
 
+.container__icon{
+  font-size: 50px;
+  color: greenyellow;
+  margin: 15px;
+}
+
+.container__icon:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: transform 0.5s ease;
+  
+}
+.container__icon:not(:hover) {
+  transition: transform 0.5s ease;
+}

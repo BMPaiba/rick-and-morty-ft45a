@@ -11,6 +11,7 @@ import Favorites from "./components/favorites/Favorites.jsx";
 import Form from "./components/form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import NotFound from "./components/notFound/NotFound.jsx";
+import DatosPaginados from "./components/detail/paginado.jsx";
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
@@ -41,6 +42,7 @@ function App() {
       // throw error;
       alert("¡El id debe ser un número entre 1 y 826!");
     }
+    // console.log('todos los personajes',characters);
   };
 
   const onClose = (id) => {
@@ -108,7 +110,7 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail characters={characters} />} />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

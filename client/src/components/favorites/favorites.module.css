@@ -25,8 +25,8 @@
     
   }
 
-  .container__button_option:active{
-    outline: none;
+  .container__button_option:hover{
+    cursor: pointer;
   }
 
   .container__button:hover{

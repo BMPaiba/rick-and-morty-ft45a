@@ -10,6 +10,7 @@ export default function Card(props) {
   const dispatch = useDispatch(); //* Function({type, payload})
   const [isFav, setIsFav] = useState(false);
   const handleFavorite = () => {
+    console.log('favoritos: ',myFavorites);
     if (isFav) {
       setIsFav(false);
       dispatch(removeFav(props.id));
@@ -18,6 +19,8 @@ export default function Card(props) {
       dispatch(addFav(props));
     }
   };
+
+  
 
   const myFavorites = useSelector((state) => state.myFavorites);
   useEffect(() => {

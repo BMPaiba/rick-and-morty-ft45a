@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./About.module.css";
 import image from "../../assets/myCharacter.png";
 import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
 
 export default function About() {
   return (
@@ -13,24 +14,41 @@ export default function About() {
         <div className={styles.container__text}>
           {/* <h1>Details:</h1> */}
           <h2>Brian Paiba</h2>
-          <h3>Status: Alive</h3>
-          <h3>Specie: Human</h3>
-          <h3>Gender: Male</h3>
-          <h3>Origin: Earth</h3>
-          <h3>Location: Argentina</h3>
-        </div>
-      </div>
-      <div className={styles.container__footer}>
-        <h1 className={styles.container__footer_text}> Follow Me </h1>
-        <div>
-          <FaLinkedin className={styles.icon__falinkedin} />
+          <h3>Education:</h3>
+          <h4>Henry Student</h4>
+          <h3>Skills: </h3>
+          <h4>
+            {" "}
+            HMTL - CSS - JavaScript - React - Redux - Node JS - Express JS{" "}
+          </h4>
+          <h3>Experience:</h3>
+          <h4>Undefined</h4>
+          <h3>Origin:</h3>
+          <h4>Buenos Aires, Argentina</h4>
+          <h3>Follow Me: </h3>
+          <div className={styles.containerforicon}>
+            <a
+              href="https://www.linkedin.com/in/brian-m-paiba/"
+              target="_blank"
+              className={styles.containerforicon__icon}
+            >
+              <FaLinkedin  className={styles.containerforicon__icon_fa} />
+            </a>
+            <a
+              href="https://github.com/BMPaiba"
+              target="_blank"
+              className={styles.containerforicon__icon}
+            >
+              <FaGithub className={styles.containerforicon__icon_fa}/>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-{/* <footer className={style.footer}>
+{
+  /* <footer className={style.footer}>
         <div className={style.footerContainer}>
           <p className={style.pabout}>Creado por Nicolas Mancera Barrera</p>
           <div className={style.redes}>
@@ -45,4 +63,5 @@ export default function About() {
             </a>
           </div>
         </div>
-      </footer> */}
+      </footer> */
+}
