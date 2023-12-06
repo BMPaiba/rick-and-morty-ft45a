@@ -11,7 +11,7 @@ import Favorites from "./components/favorites/Favorites.jsx";
 import Form from "./components/form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import NotFound from "./components/notFound/NotFound.jsx";
-import DatosPaginados from "./components/detail/paginado.jsx";
+import swal from "sweetalert";
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
@@ -36,11 +36,17 @@ function App() {
         setCharacters([data, ...characters]);
         navigate("/home");
       } else {
-        alert("¡El id debe ser un número entre 1 y 826!");
+        swal("¡El id debe ser un número entre 1 y 826!");
       }
     } catch (error) {
       // throw error;
-      alert("¡El id debe ser un número entre 1 y 826!");
+      swal({
+        title: "Id not found",
+        text: "The id must be a number between 1 and 826!",
+        icon: "warning",
+        button: "OK",
+        timer: 2000,
+      });
     }
     // console.log('todos los personajes',characters);
   };
@@ -50,21 +56,50 @@ function App() {
     dispatch(removeFav(id));
   };
 
-  const onClear = () => {
-    const confirmacion = confirm("¿Estás seguro de realizar esta acción?");
+  const rutaActual = window.location.pathname;
 
-    // Verifica la respuesta de la confirmación
-    if (confirmacion) {
-      // Si el usuario hace clic en "Aceptar", realiza la acción
-      console.log("Acción confirmada, realiza la lógica aquí");
-      setCharacters([]);
-      // dispatch(orderCards());
-      dispatch(Clear());
-      navigate("/home");
-    } else {
-      // Si el usuario hace clic en "Cancelar", puedes realizar alguna otra acción o simplemente no hacer nada
-      console.log("Acción cancelada");
-    }
+  // Verifica la ruta y ejecuta la lógica correspondiente
+  if (rutaActual === "/ruta-especifica") {
+    // Mostrar la confirmación solo si estás en una ruta específica
+    const confirmacion = swal({
+      title: "Delete all",
+      text: "Are you sure you want to delete all cards",
+      icon: "error",
+      buttons: ["NO", "YES"], // El "YES" siempre es la segunda opción, porque es true
+    }).then((respuesta) => {
+      if (respuesta) {
+        setCharacters([]);
+        dispatch(Clear());
+        navigate("/home");
+      } else {
+        swal({
+          title: "Action canceled",
+          icon: "success",
+          timer: 1000,
+        });
+      }
+    });
+  }
+
+  const onClear = () => {
+    const confirmacion = swal({
+      title: "Delete all",
+      text: "Are you sure you want to delete all cards",
+      icon: "error",
+      buttons: ["NO", "YES"], //el si siempre es la segunda opcion, porque es true
+    }).then((respuesta) => {
+      if (respuesta) {
+        setCharacters([]);
+        dispatch(Clear());
+        navigate("/home");
+      } else {
+        swal({
+          title: "Action canceled",
+          icon: "success",
+          timer: 1000,
+        });
+      }
+    });
   };
 
   //* Login
@@ -89,13 +124,29 @@ function App() {
   };
 
   function logout() {
-    setAccess(false);
+    const confirmacion = swal({
+      title: "Log Out",
+      text: "Are you sure you want to log out?",
+      icon: "warning",
+      buttons: ["NO", "YES"], //el si siempre es la segunda opcion, porque es true
+    }).then((respuesta) => {
+      if (respuesta) {
+        setAccess(false);
+        navigate("/");
+      } else {
+        swal({
+          title: "Thank you for staying here",
+          icon: "success",
+          timer: 1500,
+        });
+      }
+    });
   }
 
   useEffect(() => {
     //* Logueo automático
-    !access && navigate("/home");
-    // !access && navigate("/");
+    // !access && navigate("/home");
+    !access && navigate("/");
   }, [access]);
 
   return (
@@ -110,7 +161,10 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail characters={characters} />} />
+        <Route
+          path="/detail/:id"
+          element={<Detail characters={characters} />}
+        />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

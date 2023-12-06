@@ -4,6 +4,7 @@ import axios from "axios";
 import styles from "./detail.module.css";
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
+import { TbArrowBackUp } from "react-icons/tb";
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
@@ -19,6 +20,9 @@ export default function Detail(props) {
 
   // console.log('el id es ',allCharacters[idPosition].id);
   // console.log("íd position es:", (idActually.id));
+  const comeback = () => {
+    navigate('/home')
+  };
 
   const next = () => {
     let newId;
@@ -59,7 +63,9 @@ export default function Detail(props) {
   }, [id]);
 
   return (
+    <div>
     <div className={styles.container}>
+
       <SlArrowLeft className={styles.container__icon} onClick={next} />
       <div className={styles.container__img}>
         <img
@@ -78,6 +84,8 @@ export default function Detail(props) {
         <h3>Location: {character.location?.name}</h3>
       </div>
       <SlArrowRight className={styles.container__icon} onClick={previus} />
+      </div>
+    <TbArrowBackUp className={styles.container__icon} id={styles.comeback} onClick={comeback}/>
     </div>
   );
 }

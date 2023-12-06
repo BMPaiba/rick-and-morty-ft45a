@@ -3,8 +3,14 @@ import styles from "./About.module.css";
 import image from "../../assets/myCharacter.png";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
+import { TbArrowBackUp } from "react-icons/tb";
+import {  useNavigate } from "react-router-dom";
 
 export default function About() {
+  const navigate = useNavigate();
+  const comeback = () => {
+    navigate("/home");
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -32,36 +38,19 @@ export default function About() {
               target="_blank"
               className={styles.containerforicon__icon}
             >
-              <FaLinkedin  className={styles.containerforicon__icon_fa} />
+              <FaLinkedin className={styles.containerforicon__icon_fa} />
             </a>
             <a
               href="https://github.com/BMPaiba"
               target="_blank"
               className={styles.containerforicon__icon}
             >
-              <FaGithub className={styles.containerforicon__icon_fa}/>
+              <FaGithub className={styles.containerforicon__icon_fa} />
             </a>
           </div>
         </div>
-      </div>
+    </div>
+    <TbArrowBackUp className={styles.container__icon} id={styles.comeback} onClick={comeback}/>
     </div>
   );
-}
-{
-  /* <footer className={style.footer}>
-        <div className={style.footerContainer}>
-          <p className={style.pabout}>Creado por Nicolas Mancera Barrera</p>
-          <div className={style.redes}>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/nicolas-mancera-barrera-706764295/"
-            >
-              <BsLinkedin className={style.icon} />
-            </a>
-            <a target="_blank" href="https://github.com/NmanceraBarrera">
-              <BsGithub className={style.icon} />
-            </a>
-          </div>
-        </div>
-      </footer> */
 }

@@ -3,7 +3,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 60px;
   font-family: "Times New Roman", Times, serif;
   box-sizing: border-box;
   gap: 100px;
@@ -61,4 +61,13 @@
 }
 .container__icon:not(:hover) {
   transition: transform 0.5s ease;
+}
+
+#comeback {
+  position: absolute;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  top: 20px;
+  right:30px;
 }

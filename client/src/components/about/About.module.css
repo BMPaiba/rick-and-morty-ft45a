@@ -98,3 +98,27 @@
   transition: transform 0.5s ease;
 }
 
+.container__icon:hover{
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: transform 0.5s ease;
+  
+}
+.container__icon:not(:hover){
+  transition: transform 0.5s ease;
+}
+
+#comeback{
+  position: absolute;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  top: 20px;
+  right:30px;
+}
+
+.container__icon{
+  font-size: 50px;
+  color: greenyellow;
+  margin: 15px;
+}
