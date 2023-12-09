@@ -82,6 +82,7 @@ function App() {
   }
 
   const onClear = () => {
+    if(characters.length > 0){
     const confirmacion = swal({
       title: "Delete all",
       text: "Are you sure you want to delete all cards",
@@ -100,6 +101,7 @@ function App() {
         });
       }
     });
+  }
   };
 
   //* Login
@@ -145,8 +147,8 @@ function App() {
 
   useEffect(() => {
     //* Logueo automático
-    // !access && navigate("/home");
-    !access && navigate("/");
+    !access && navigate("/home");
+    // !access && navigate("/");
   }, [access]);
 
   return (

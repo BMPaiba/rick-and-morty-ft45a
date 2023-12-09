@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./About.module.css";
 import image from "../../assets/myCharacter.png";
-import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
-import { TbArrowBackUp } from "react-icons/tb";
-import {  useNavigate } from "react-router-dom";
-
+import { TbArrowBackUp, TbBrandRedux } from "react-icons/tb";
+import {FaLinkedin, 
+  FaHtml5, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { IoLogoJavascript } from "react-icons/io5";
 export default function About() {
+  const imgHenry = 'https://avatars.githubusercontent.com/u/57154655?s=280&v=4'
   const navigate = useNavigate();
   const comeback = () => {
     navigate("/home");
@@ -20,13 +22,20 @@ export default function About() {
         <div className={styles.container__text}>
           {/* <h1>Details:</h1> */}
           <h2>Brian Paiba</h2>
+          <div className={styles.container__education}>
+
           <h3>Education:</h3>
-          <h4>Henry Student</h4>
+          <h4><img className={styles.container__img_henry} src={imgHenry} alt="image" /> Student</h4>
+          </div>
           <h3>Skills: </h3>
-          <h4>
-            {" "}
-            HMTL - CSS - JavaScript - React - Redux - Node JS - Express JS{" "}
-          </h4>
+          <div className={styles.container__icons}>
+            <FaHtml5 className={styles.container__icons_hmtl} />
+            <FaCss3Alt className={styles.container__icons_css} />
+            <IoLogoJavascript className={styles.container__icons_javascript} />
+            <FaReact className={styles.container__icons_react} />
+            <TbBrandRedux className={styles.container__icons_redux} />
+            <FaNodeJs className={styles.container__icons_node} />
+          </div>
           <h3>Experience:</h3>
           <h4>Undefined</h4>
           <h3>Origin:</h3>
@@ -38,19 +47,23 @@ export default function About() {
               target="_blank"
               className={styles.containerforicon__icon}
             >
-              <FaLinkedin className={styles.containerforicon__icon_fa} />
+              <FaLinkedin className={styles.containerforicon__icon_linkdin} />
             </a>
             <a
               href="https://github.com/BMPaiba"
               target="_blank"
               className={styles.containerforicon__icon}
             >
-              <FaGithub className={styles.containerforicon__icon_fa} />
+              <FaGithub className={styles.containerforicon__icon_github} />
             </a>
           </div>
         </div>
-    </div>
-    <TbArrowBackUp className={styles.container__icon} id={styles.comeback} onClick={comeback}/>
+      </div>
+      <TbArrowBackUp
+        className={styles.container__icon}
+        id={styles.comeback}
+        onClick={comeback}
+      />
     </div>
   );
 }

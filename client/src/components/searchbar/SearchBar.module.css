@@ -12,9 +12,10 @@
   }
   
   .buttons {
-    padding: 4px 25px;
+    padding: 5px 25px;
     font-size: 14px;
     margin-left: 10px;
+    margin-right: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     border: 2px solid greenyellow;
