@@ -60,7 +60,7 @@ export default function About() {
         </div>
       </div>
       <TbArrowBackUp
-        className={styles.container__icon}
+        className={styles.container__icon_comeback}
         id={styles.comeback}
         onClick={comeback}
       />

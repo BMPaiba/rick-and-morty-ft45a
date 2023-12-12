@@ -38,15 +38,22 @@
   /* vertical-align: middle; */
 }
 
+.container__text h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+
 .container__text h3 {
-  font-size: 25px;
+  font-size: 30px;
   margin: 10px;
   /* color:  rgba(93, 193, 185, 1); */
   /* color: greenyellow; */
   color: skyblue;
 }
 .container__text h4 {
-  font-size: 20px;
+  font-size: 25px;
   margin: 10px;
   /* color:  rgba(93, 193, 185, 1); */
   /* color: greenyellow; */
@@ -60,7 +67,7 @@
   gap: 20px;
 }
 .containerforicon__icon {
-  font-size: 35px;
+  font-size: 40px;
 }
 .containerforicon__icon:hover {
   cursor: pointer;
@@ -80,15 +87,7 @@
   transition: transform 0.5s ease;
 }
 /*---------------------------------*/
-/* apertura id  de icono comeback*/
-#comeback {
-  position: absolute;
-  display: flex;
-  margin: auto;
-  margin-top: 50px;
-  top: 20px;
-  right: 30px;
-}
+
 /*---------------------------------*/
 /*apertura iconos de skills */
 .container__icons {
@@ -127,4 +126,28 @@ color: #000000;
 .container__img_henry{
   width: 20px;
   margin-right: 5px;
+}
+
+.container__icon_comeback {
+  font-size: 50px;
+  color: greenyellow;
+  margin: 15px;
+}
+
+.container__icon_comeback:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: transform 0.5s ease;
+}
+.container__icon_comeback:not(:hover) {
+  transition: transform 0.5s ease;
+}
+
+#comeback {
+  position: absolute;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  top: 20px;
+  right:30px;
 }
