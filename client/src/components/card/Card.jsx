@@ -5,9 +5,7 @@ import { addFav, removeFav } from "../../redux/actions";
 import style from "./Card.module.css";
 
 export default function Card(props) {
-  //* props = { id, name, status, ... } => character
-
-  const dispatch = useDispatch(); //* Function({type, payload})
+  const dispatch = useDispatch(); 
   const [isFav, setIsFav] = useState(false);
   const handleFavorite = () => {
     console.log('favoritos: ',myFavorites);
@@ -19,8 +17,6 @@ export default function Card(props) {
       dispatch(addFav(props));
     }
   };
-
-  
 
   const myFavorites = useSelector((state) => state.myFavorites);
   useEffect(() => {

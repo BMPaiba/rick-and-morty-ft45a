@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import validation from "../../utils/validation";
 import styles from "./form.module.css";
 
-
-
 export default function Form(props) {
   const [userData, setUserData] = useState({
     email: "",
@@ -36,6 +34,7 @@ export default function Form(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.login(userData);
+    
   };
 
   return (

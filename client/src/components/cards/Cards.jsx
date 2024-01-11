@@ -2,9 +2,7 @@ import Card from "../card/Card.jsx";
 import style from "./cards.module.css";
 
 export default function Cards({ characters, onClose }) {
-  // console.log(characters);
-  //* props = { characters: [ --- ] }
-  //* characters = [ {R}, {M}, {B}, {S} ]
+  
   return (
     <div className={style.container}>
       {!characters.length ? (

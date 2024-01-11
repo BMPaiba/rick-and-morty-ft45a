@@ -1,7 +1,6 @@
 const { Favorite } = require("../DB_connection");
 
 const postFav = async (req, res) => {
-  console.log(req.body);
   try {
     const { id, name, origin, status, image, species, gender } = req.body;
     if(id && name && origin && status && image && species && gender) {

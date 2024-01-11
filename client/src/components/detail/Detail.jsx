@@ -46,14 +46,10 @@ export default function Detail(props) {
     navigate(`/detail/${newId}`);
   };
 
-  // console.log(id);
   useEffect(() => {
     axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      // axios(`${URL}/${id}?key=${API_KEY}`)
-      //* { timpo:x, status:x, data: { Rick } }
       .then(({ data }) => {
         if (data.name) {
-          // console.log(data);
           setCharacter(data);
         } else {
           window.alert("No hay personajes con ese ID");
@@ -75,7 +71,6 @@ export default function Detail(props) {
         />
       </div>
       <div className={styles.container__text}>
-        {/* <h1>Details:</h1> */}
         <h2>{character.name}</h2>
         <h3>Status: {character.status}</h3>
         <h3>Specie: {character.species}</h3>
