@@ -11,7 +11,7 @@ import Favorites from "./components/favorites/Favorites.jsx";
 import Form from "./components/form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import NotFound from "./components/notFound/NotFound.jsx";
-import swal from "sweetalert";
+import Swal from "sweetalert";
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
@@ -38,11 +38,11 @@ function App() {
         setCharacters([data, ...characters]);
         navigate("/home");
       } else {
-        swal("¡El id debe ser un número entre 1 y 826!");
+        Swal("¡El id debe ser un número entre 1 y 826!");
       }
     } catch (error) {
       // throw error;
-      swal({
+      Swal({
         title: "Id not found",
         text: "The id must be a number between 1 and 826!",
         icon: "warning",
@@ -63,7 +63,7 @@ function App() {
   // Verifica la ruta y ejecuta la lógica correspondiente
   if (rutaActual === "/ruta-especifica") {
     // Mostrar la confirmación solo si estás en una ruta específica
-    const confirmacion = swal({
+    const confirmacion = Swal({
       title: "Delete all",
       text: "Are you sure you want to delete all cards",
       icon: "error",
@@ -74,7 +74,7 @@ function App() {
         dispatch(Clear());
         navigate("/home");
       } else {
-        swal({
+        Swal({
           title: "Action canceled",
           icon: "success",
           timer: 1000,
@@ -85,7 +85,7 @@ function App() {
 
   const onClear = () => {
     if(characters.length > 0){
-    const confirmacion = swal({
+    const confirmacion = Swal({
       title: "Delete all",
       text: "Are you sure you want to delete all cards",
       icon: "error",
@@ -96,7 +96,7 @@ function App() {
         dispatch(Clear());
         navigate("/home");
       } else {
-        swal({
+        Swal({
           title: "Action canceled",
           icon: "success",
           timer: 1000,
@@ -128,7 +128,7 @@ function App() {
   };
 
   function logout() {
-    const confirmacion = swal({
+    const confirmacion = Swal({
       title: "Log Out",
       text: "Are you sure you want to log out?",
       icon: "warning",
@@ -138,7 +138,7 @@ function App() {
         setAccess(false);
         navigate("/");
       } else {
-        swal({
+        Swal({
           title: "Thank you for staying here",
           icon: "success",
           timer: 1500,
