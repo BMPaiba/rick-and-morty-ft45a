@@ -3,6 +3,7 @@ const { User } = require("../DB_connection");
 const login = async (req, res) => {
   try {
     const { email, password } = req.query;
+    console.log(email,password)
     if (email && password) {
       const actualUser = await User.findOne({ where: { email, password } });
       if (actualUser) {
