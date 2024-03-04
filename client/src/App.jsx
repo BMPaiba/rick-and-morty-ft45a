@@ -10,7 +10,6 @@ import Detail from "./components/detail/Detail.jsx";
 import Favorites from "./components/favorites/Favorites.jsx";
 import Form from "./components/form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
-import NotFound from "./components/notfound/NotFound.jsx";
 import Swal from "sweetalert";
 
 const URL = "https://rym2.up.railway.app/api/character";
@@ -170,7 +169,6 @@ function App() {
           element={<Detail characters={characters} />}
         />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
