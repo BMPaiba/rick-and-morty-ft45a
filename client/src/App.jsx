@@ -15,6 +15,8 @@ import swal from "sweetalert";
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
+const URL_API = import.meta.env.VITE_URL_API;
+
 
 function App() {
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ function App() {
     }
     try {
       const { data } = await axios(
-        `http://localhost:3001/rickandmorty/character/${id}`
+        `${URL_API}/rickandmorty/character/${id}`
       );
       if (data.name) {
         setCharacters([data, ...characters]);
@@ -112,7 +114,7 @@ function App() {
   const login = async (userData) => {
     const { email, password } = userData;
     try {
-      const URL = "http://localhost:3001/rickandmorty/login/";
+      const URL = `${URL_API}/rickandmorty/login/`;
       const { data } = await axios(
         URL + `?email=${email}&password=${password}`
       );

@@ -17,6 +17,7 @@ export default function Detail(props) {
   let allCharacters = props.characters;
   let idActually = allCharacters.find((char) => char.id === idNumber);
   let idPosition = allCharacters.findIndex((char) => char.id === idNumber);
+const URL_API = import.meta.env.VITE_URL_API;
 
   // console.log('el id es ',allCharacters[idPosition].id);
   // console.log("íd position es:", (idActually.id));
@@ -47,7 +48,7 @@ export default function Detail(props) {
   };
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
+    axios(`${URL_API}/rickandmorty/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
           setCharacter(data);
