@@ -1,4 +1,44 @@
+.buttons{
+  display: none;
+}
+
+.container{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+}
+
 .inputId {
+  padding: 5px;
+  margin-right: 5px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid greenyellow;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  width: 120px;
+}
+
+.buttons_mobile{
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+
+@media (min-width: 768px) {
+  .buttons_mobile{
+    display: none;
+  }
+
+  .buttons{
+    display: block;
+  }
+ 
+  .inputId {
     /* margin: 10px; */
     padding: 5px;
     margin-right: 5px;
@@ -10,7 +50,7 @@
     font-size: 15px;
     font-family: "Times New Roman", Times, serif;
   }
-  
+
   .buttons {
     padding: 5px 25px;
     font-size: 14px;
@@ -23,31 +63,32 @@
     color: white;
     border-radius: 15px;
     background: transparent;
-   backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
   }
-  .buttons:hover{
+  .buttons:hover {
     cursor: pointer;
     background-color: green;
   }
-  
+
   .inputId::placeholder {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     color: rgb(145, 145, 145);
   }
-  
+
   .inputId:focus {
     outline: none;
     background-color: dimgrey;
   }
-  
-.container{
-  justify-content: center;
-}
 
-.container {
-  display: flex;
-  justify-content: center; /* Alinea horizontalmente en el centro */
-  align-items: center; /* Alinea verticalmente en el centro */
-  height: 40px;
+  .container {
+    justify-content: center;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente en el centro */
+    align-items: center; /* Alinea verticalmente en el centro */
+    height: 40px;
+  }
 }
